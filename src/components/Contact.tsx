@@ -35,61 +35,36 @@ export default function Contact() {
   ];
 
   return (
-    <section
-      id="contact"
-      style={{
-        padding: "6rem 6%",
-        position: "relative",
-        zIndex: 1,
-      }}
-    >
+    <section id="contact" className="section-shell">
       <div
-        className="reveal"
+        className="reveal section-panel corner-flourish"
         style={{
           maxWidth: 680,
           margin: "0 auto",
           textAlign: "center",
+          padding: "2rem",
         }}
       >
-        <div
-          style={{
-            fontFamily: "'DM Mono', monospace",
-            fontSize: "0.72rem",
-            color: "var(--accent)",
-            letterSpacing: "0.12em",
-            textTransform: "uppercase",
-            marginBottom: "0.6rem",
-          }}
-        >
-          get in touch
-        </div>
+        <p className="roman-label" style={{ marginBottom: "0.6rem" }}>Volume V</p>
 
         <h2
           style={{
-            fontFamily: "'Syne', sans-serif",
-            fontWeight: 700,
-            fontSize: "clamp(2rem, 4vw, 3.2rem)",
-            letterSpacing: "-1.5px",
+            fontWeight: 500,
+            fontSize: "clamp(2rem, 4vw, 3.4rem)",
             marginBottom: "1rem",
             lineHeight: 1.1,
           }}
         >
-          Let&apos;s Build Something
+          Let Us Correspond
           <br />
-          <span
-            style={{
-              color: "transparent",
-              WebkitTextStroke: "1.5px var(--accent)",
-            }}
-          >
-            Together
-          </span>
+          <span style={{ color: "var(--accent)", textShadow: "var(--engraved)" }}>With Intention</span>
         </h2>
 
         <p
+          className="drop-cap"
           style={{
             color: "var(--muted)",
-            fontSize: "0.93rem",
+            fontSize: "1.04rem",
             lineHeight: 1.7,
             maxWidth: 480,
             margin: "0 auto 2.5rem",
@@ -100,61 +75,28 @@ export default function Contact() {
           reach out!
         </p>
 
-        {/* Email button with copy */}
         <button
           onClick={copyEmail}
-          style={{
-            display: "inline-flex",
-            alignItems: "center",
-            gap: 10,
-            background: "transparent",
-            border: "1px solid rgba(255,255,255,0.12)",
-            borderRadius: 10,
-            padding: "0.9rem 2rem",
-            cursor: "pointer",
-            marginBottom: "2.5rem",
-            transition: "all 0.25s",
-            width: "100%",
-            maxWidth: 400,
-            justifyContent: "center",
-          }}
-          onMouseEnter={(e) => {
-            e.currentTarget.style.borderColor = "var(--accent)";
-            e.currentTarget.style.background = "rgba(124,106,255,0.05)";
-          }}
-          onMouseLeave={(e) => {
-            e.currentTarget.style.borderColor = "rgba(255,255,255,0.12)";
-            e.currentTarget.style.background = "transparent";
-          }}
+          className="brass-button"
+          style={{ width: "100%", maxWidth: 440, marginBottom: "2rem", gap: 10 }}
         >
-          <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="var(--muted)" strokeWidth={1.5}>
+          <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
             <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
           </svg>
           <span
             style={{
-              fontFamily: "'Syne', sans-serif",
-              fontWeight: 600,
-              fontSize: "1rem",
-              color: copied ? "var(--accent2)" : "var(--text)",
+              fontFamily: "'Cinzel', serif",
+              fontWeight: 500,
+              fontSize: "0.68rem",
+              letterSpacing: "0.14em",
+              color: copied ? "var(--accent-foreground)" : "var(--accent-foreground)",
               transition: "color 0.2s",
-              letterSpacing: "-0.3px",
             }}
           >
-            {copied ? "✓ Copied!" : "kraakib53@gmail.com"}
-          </span>
-          <span
-            style={{
-              fontFamily: "'DM Mono', monospace",
-              fontSize: "0.7rem",
-              color: "var(--muted)",
-              marginLeft: "auto",
-            }}
-          >
-            {copied ? "" : "copy"}
+            {copied ? "Copied to Clipboard" : "kraakib53@gmail.com"}
           </span>
         </button>
 
-        {/* Or text */}
         <div
           style={{
             display: "flex",
@@ -164,11 +106,10 @@ export default function Contact() {
           }}
         >
           <div style={{ flex: 1, height: 1, background: "var(--border)" }} />
-          <span style={{ fontFamily: "'DM Mono', monospace", fontSize: "0.7rem", color: "var(--muted)" }}>or connect via</span>
+          <span className="display-font" style={{ fontSize: "0.52rem", color: "var(--muted)" }}>or connect via</span>
           <div style={{ flex: 1, height: 1, background: "var(--border)" }} />
         </div>
 
-        {/* Social links */}
         <div
           style={{
             display: "flex",
@@ -183,28 +124,13 @@ export default function Contact() {
               href={link.href}
               target="_blank"
               rel="noopener noreferrer"
-              style={{
-                display: "inline-flex",
-                alignItems: "center",
-                gap: 8,
-                padding: "0.65rem 1.4rem",
-                borderRadius: 8,
-                border: "1px solid rgba(255,255,255,0.08)",
-                fontFamily: "'DM Mono', monospace",
-                fontSize: "0.8rem",
-                color: "var(--muted)",
-                textDecoration: "none",
-                transition: "all 0.2s",
-              }}
+              className="brass-outline"
+              style={{ minHeight: 42, padding: "0.6rem 1.2rem", fontSize: "0.52rem", gap: 8 }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.color = link.color;
-                e.currentTarget.style.borderColor = link.color + "60";
-                e.currentTarget.style.background = link.color + "08";
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.color = "var(--muted)";
-                e.currentTarget.style.borderColor = "rgba(255,255,255,0.08)";
-                e.currentTarget.style.background = "transparent";
+                e.currentTarget.style.color = "var(--text)";
               }}
             >
               {link.icon}

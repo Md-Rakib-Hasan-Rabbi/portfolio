@@ -16,7 +16,7 @@ const skillGroups = [
   },
   {
     title: "Backend",
-    color: "var(--accent2)",
+    color: "var(--accent)",
     skills: [
       { name: "Node.js & Express", level: 90 },
       { name: "Python", level: 85 },
@@ -27,7 +27,7 @@ const skillGroups = [
   },
   {
     title: "Database & Tools",
-    color: "var(--accent3)",
+    color: "var(--accent-secondary)",
     skills: [
       { name: "MongoDB", level: 88 },
       { name: "Mongoose", level: 85 },
@@ -46,8 +46,8 @@ function SkillBar({ name, level, color, animate }: { name: string; level: number
           display: "flex",
           justifyContent: "space-between",
           marginBottom: "0.3rem",
-          fontFamily: "'DM Mono', monospace",
-          fontSize: "0.75rem",
+          fontFamily: "'Crimson Pro', serif",
+          fontSize: "0.9rem",
         }}
       >
         <span style={{ color: "var(--text)" }}>{name}</span>
@@ -55,9 +55,9 @@ function SkillBar({ name, level, color, animate }: { name: string; level: number
       </div>
       <div
         style={{
-          height: 4,
-          background: "rgba(255,255,255,0.05)",
-          borderRadius: 2,
+          height: 8,
+          background: "var(--muted-surface)",
+          borderRadius: 4,
           overflow: "hidden",
         }}
       >
@@ -66,9 +66,8 @@ function SkillBar({ name, level, color, animate }: { name: string; level: number
             height: "100%",
             width: animate ? `${level}%` : "0%",
             background: color,
-            borderRadius: 2,
-            transition: "width 1.2s cubic-bezier(0.16,1,0.3,1)",
-            boxShadow: `0 0 8px ${color}60`,
+            borderRadius: 4,
+            transition: "width 1.2s ease-out",
           }}
         />
       </div>
@@ -87,46 +86,14 @@ export default function Skills() {
   }, []);
 
   return (
-    <section
-      id="skills"
-      ref={ref}
-      style={{
-        padding: "6rem 6%",
-        background: "var(--surface)",
-        borderTop: "1px solid var(--border)",
-        borderBottom: "1px solid var(--border)",
-        position: "relative",
-        zIndex: 1,
-      }}
-    >
-      {/* Section header */}
-      <div className="reveal" style={{ marginBottom: "3rem" }}>
-        <div
-          style={{
-            fontFamily: "'DM Mono', monospace",
-            fontSize: "0.72rem",
-            color: "var(--accent)",
-            letterSpacing: "0.12em",
-            textTransform: "uppercase",
-            marginBottom: "0.6rem",
-          }}
-        >
-          technical expertise
-        </div>
-        <h2
-          style={{
-            fontFamily: "'Syne', sans-serif",
-            fontWeight: 700,
-            fontSize: "clamp(1.8rem, 3vw, 2.5rem)",
-            letterSpacing: "-1px",
-            marginBottom: "0.6rem",
-          }}
-        >
-          My Stack
-        </h2>
-        <p style={{ color: "var(--muted)", fontSize: "0.93rem", maxWidth: 480 }}>
-          Tools and technologies I use to build full-stack applications end-to-end.
+    <section id="skills" ref={ref} className="section-shell">
+      <div className="reveal" style={{ marginBottom: "2rem" }}>
+        <p className="roman-label" style={{ marginBottom: "0.55rem" }}>Volume II</p>
+        <h2 style={{ fontSize: "clamp(2rem, 3.5vw, 3rem)", marginBottom: "0.5rem" }}>Disciplines & Instruments</h2>
+        <p style={{ color: "var(--muted)", maxWidth: 620, fontSize: "1.03rem" }}>
+          A measured inventory of the tools, languages, and practices used in scholarly software construction.
         </p>
+        <div className="ornate-divider" style={{ marginTop: "1rem" }} aria-hidden="true" />
       </div>
 
       {/* Skills grid */}
@@ -140,37 +107,19 @@ export default function Skills() {
         {skillGroups.map((group, gi) => (
           <div
             key={group.title}
-            className="reveal"
+            className="reveal section-panel corner-flourish"
             style={{
-              background: "var(--bg)",
-              border: "1px solid var(--border)",
-              borderRadius: 14,
-              padding: "1.75rem",
+              padding: "1.3rem",
               transitionDelay: `${gi * 0.1}s`,
-              position: "relative",
-              overflow: "hidden",
+              overflow: "visible",
             }}
-            onMouseEnter={(e) => { e.currentTarget.style.borderColor = `${group.color}40`; }}
-            onMouseLeave={(e) => { e.currentTarget.style.borderColor = "var(--border)"; }}
           >
-            {/* Accent bar top */}
             <div
               style={{
-                position: "absolute",
-                top: 0,
-                left: 0,
-                right: 0,
-                height: 2,
-                background: group.color,
-                opacity: 0.6,
-              }}
-            />
-            <div
-              style={{
-                fontFamily: "'DM Mono', monospace",
-                fontSize: "0.7rem",
-                letterSpacing: "0.1em",
-                color: group.color,
+                fontFamily: "'Cinzel', serif",
+                fontSize: "0.68rem",
+                letterSpacing: "0.18em",
+                color: "var(--accent)",
                 marginBottom: "1.2rem",
                 textTransform: "uppercase",
               }}
@@ -184,32 +133,33 @@ export default function Skills() {
         ))}
       </div>
 
-      {/* Tech pill cloud */}
       <div className="reveal" style={{ marginTop: "2.5rem" }}>
-        <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "0.7rem", color: "var(--muted)", marginBottom: "1rem", letterSpacing: "0.08em" }}>
-          ALSO WORKED WITH
+        <p className="display-font" style={{ fontSize: "0.58rem", color: "var(--muted)", marginBottom: "0.8rem" }}>
+          Appendix · Additional Instruments
         </p>
         <div style={{ display: "flex", flexWrap: "wrap", gap: "0.5rem" }}>
           {["Redux", "Context API", "Stripe API", "Socket.io", "Axios", "Mongoose", "bcrypt", "dotenv", "Vercel", "Render", "Netlify"].map((tech) => (
             <span
               key={tech}
               style={{
-                fontFamily: "'DM Mono', monospace",
-                fontSize: "0.72rem",
-                padding: "4px 12px",
-                borderRadius: 100,
-                border: "1px solid rgba(255,255,255,0.08)",
+                fontFamily: "'Cinzel', serif",
+                fontSize: "0.58rem",
+                letterSpacing: "0.14em",
+                padding: "0.36rem 0.75rem",
+                borderRadius: 4,
+                border: "1px solid var(--border)",
                 color: "var(--muted)",
-                background: "rgba(255,255,255,0.02)",
-                transition: "all 0.2s",
+                background: "var(--bg-alt)",
+                transition: "all 0.3s ease-out",
                 cursor: "default",
+                textTransform: "uppercase",
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.borderColor = "rgba(124,106,255,0.4)";
+                e.currentTarget.style.borderColor = "var(--accent)";
                 e.currentTarget.style.color = "var(--accent)";
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.borderColor = "rgba(255,255,255,0.08)";
+                e.currentTarget.style.borderColor = "var(--border)";
                 e.currentTarget.style.color = "var(--muted)";
               }}
             >

@@ -11,18 +11,8 @@ export default function Home() {
   return (
     <>
       <ScrollReveal />
-      <div
-        style={{
-          position: "fixed",
-          inset: 0,
-          backgroundImage:
-            "linear-gradient(rgba(124,106,255,0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(124,106,255,0.025) 1px, transparent 1px)",
-          backgroundSize: "60px 60px",
-          pointerEvents: "none",
-          zIndex: 0,
-          animation: "gridMove 8s linear infinite",
-        }}
-      />
+      <div className="academia-texture" aria-hidden="true" />
+      <div className="academia-vignette" aria-hidden="true" />
       <Navbar />
       <main style={{ position: "relative", zIndex: 1 }}>
         <Hero />

@@ -1,11 +1,10 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
-  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -26,34 +25,33 @@ export default function Navbar() {
         display: "flex",
         justifyContent: "space-between",
         alignItems: "center",
-        padding: "1.1rem 6%",
-        background: scrolled ? "rgba(10,10,15,0.92)" : "transparent",
-        backdropFilter: scrolled ? "blur(20px)" : "none",
-        borderBottom: scrolled ? "1px solid rgba(255,255,255,0.06)" : "1px solid transparent",
-        transition: "all 0.4s cubic-bezier(0.16,1,0.3,1)",
+        padding: "1rem 6%",
+        background: scrolled ? "rgba(28,23,20,0.95)" : "rgba(28,23,20,0.75)",
+        backdropFilter: "blur(10px)",
+        borderBottom: "1px solid var(--border)",
+        transition: "all 0.5s ease-out",
         animation: "fadeIn 0.6s ease both",
       }}
     >
-      {/* Logo */}
       <Link
         href="/"
         style={{
-          fontFamily: "'Syne', sans-serif",
-          fontWeight: 800,
-          fontSize: "1.2rem",
-          color: "var(--text)",
+          fontFamily: "'Cinzel', serif",
+          fontWeight: 600,
+          fontSize: "1rem",
+          color: "var(--accent)",
           textDecoration: "none",
-          letterSpacing: "-0.5px",
+          letterSpacing: "0.18em",
+          textTransform: "uppercase",
         }}
       >
-        RH<span style={{ color: "var(--accent)" }}>.</span>
+        Rakib Hasan
       </Link>
 
-      {/* Desktop links */}
       <ul
         style={{
           display: "flex",
-          gap: "2rem",
+          gap: "1.5rem",
           listStyle: "none",
         }}
         className="nav-desktop"
@@ -63,16 +61,23 @@ export default function Navbar() {
             <a
               href={`#${link}`}
               style={{
-                fontFamily: "'DM Mono', monospace",
-                fontSize: "0.78rem",
+                fontFamily: "'Cinzel', serif",
+                fontSize: "0.62rem",
                 color: "var(--muted)",
                 textDecoration: "none",
-                letterSpacing: "0.05em",
-                transition: "color 0.2s",
+                letterSpacing: "0.2em",
+                textTransform: "uppercase",
+                transition: "color 0.3s ease-out, letter-spacing 0.3s ease-out",
                 animation: `fadeIn 0.5s ${0.1 + i * 0.08}s ease both`,
               }}
-              onMouseEnter={(e) => ((e.target as HTMLElement).style.color = "var(--text)")}
-              onMouseLeave={(e) => ((e.target as HTMLElement).style.color = "var(--muted)")}
+              onMouseEnter={(e) => {
+                (e.target as HTMLElement).style.color = "var(--accent)";
+                (e.target as HTMLElement).style.letterSpacing = "0.24em";
+              }}
+              onMouseLeave={(e) => {
+                (e.target as HTMLElement).style.color = "var(--muted)";
+                (e.target as HTMLElement).style.letterSpacing = "0.2em";
+              }}
             >
               {link}
             </a>
@@ -80,33 +85,8 @@ export default function Navbar() {
         ))}
       </ul>
 
-      {/* CTA */}
-      <a
-        href="#contact"
-        style={{
-          fontFamily: "'DM Mono', monospace",
-          fontSize: "0.78rem",
-          color: "var(--accent)",
-          border: "1px solid var(--accent)",
-          padding: "0.45rem 1.1rem",
-          borderRadius: "4px",
-          textDecoration: "none",
-          letterSpacing: "0.05em",
-          transition: "all 0.2s",
-          animation: "fadeIn 0.5s 0.4s ease both",
-        }}
-        onMouseEnter={(e) => {
-          const el = e.currentTarget;
-          el.style.background = "var(--accent)";
-          el.style.color = "#fff";
-        }}
-        onMouseLeave={(e) => {
-          const el = e.currentTarget;
-          el.style.background = "transparent";
-          el.style.color = "var(--accent)";
-        }}
-      >
-        hire me ↗
+      <a href="#contact" className="brass-button" style={{ minHeight: 40, padding: "0.5rem 1rem", fontSize: "0.58rem", animation: "fadeIn 0.5s 0.4s ease both" }}>
+        Summon Correspondence
       </a>
 
       <style>{`

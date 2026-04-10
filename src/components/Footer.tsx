@@ -9,6 +9,7 @@ export default function Footer() {
         textAlign: "center",
         padding: "2rem 6%",
         borderTop: "1px solid var(--border)",
+        background: "color-mix(in srgb, var(--bg-alt) 65%, transparent)",
         display: "flex",
         justifyContent: "space-between",
         alignItems: "center",
@@ -18,19 +19,20 @@ export default function Footer() {
     >
       <span
         style={{
-          fontFamily: "'Syne', sans-serif",
-          fontWeight: 800,
-          fontSize: "1.1rem",
-          letterSpacing: "-0.5px",
+          fontFamily: "'Cinzel', serif",
+          fontWeight: 600,
+          fontSize: "0.86rem",
+          letterSpacing: "0.2em",
+          textTransform: "uppercase",
+          color: "var(--accent)",
         }}
       >
-        RH<span style={{ color: "var(--accent)" }}>.</span>
+        House of Hasan
       </span>
 
       <span
         style={{
-          fontFamily: "'DM Mono', monospace",
-          fontSize: "0.73rem",
+          fontSize: "0.96rem",
           color: "var(--muted)",
         }}
       >
@@ -41,20 +43,10 @@ export default function Footer() {
 
       <a
         href="#home"
-        style={{
-          fontFamily: "'DM Mono', monospace",
-          fontSize: "0.72rem",
-          color: "var(--muted)",
-          textDecoration: "none",
-          display: "flex",
-          alignItems: "center",
-          gap: 6,
-          transition: "color 0.2s",
-        }}
-        onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.color = "var(--text)")}
-        onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.color = "var(--muted)")}
+        className="brass-link"
+        style={{ fontSize: "0.58rem" }}
       >
-        back to top ↑
+        Return to Prelude ↑
       </a>
     </footer>
   );

@@ -58,92 +58,60 @@ function ProjectCard({ project, index }: { project: (typeof projects)[0]; index:
 
   return (
     <div
-      className="reveal"
+      className="reveal section-panel corner-flourish"
       style={{
-        background: "var(--surface)",
-        border: `1px solid ${hovered ? project.accentColor + "40" : "var(--border)"}`,
-        borderRadius: 16,
-        padding: "1.8rem",
-        position: "relative",
-        overflow: "hidden",
-        transition: "all 0.35s cubic-bezier(0.16,1,0.3,1)",
-        transform: hovered ? "translateY(-6px)" : "translateY(0)",
+        borderColor: hovered ? "var(--accent)" : "var(--border)",
+        padding: "1.5rem",
+        overflow: "visible",
+        transition: "all 0.5s ease-out",
         transitionDelay: `${index * 0.08}s`,
         cursor: "default",
       }}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
-      {/* Top glow line on hover */}
-      <div
-        style={{
-          position: "absolute",
-          top: 0,
-          left: 0,
-          right: 0,
-          height: 1,
-          background: `linear-gradient(90deg, transparent, ${project.accentColor}, transparent)`,
-          opacity: hovered ? 1 : 0,
-          transition: "opacity 0.35s",
-        }}
-      />
+      {project.featured ? (
+        <div className="wax-seal" style={{ position: "absolute", top: -18, right: 20 }} aria-hidden="true">✶</div>
+      ) : null}
 
-      {/* Background glow */}
       <div
         style={{
-          position: "absolute",
-          top: -60,
-          right: -60,
-          width: 200,
-          height: 200,
+          width: 52,
+          height: 52,
           borderRadius: "50%",
-          background: project.accentColor + "08",
-          filter: "blur(40px)",
-          opacity: hovered ? 1 : 0,
-          transition: "opacity 0.35s",
-          pointerEvents: "none",
-        }}
-      />
-
-      {/* Icon */}
-      <div
-        style={{
-          width: 48,
-          height: 48,
-          borderRadius: 12,
-          background: project.iconBg,
-          border: `1px solid ${project.accentColor}25`,
+          background: "var(--bg)",
+          border: "1px solid var(--accent)",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
           fontSize: "1.5rem",
-          marginBottom: "1.2rem",
-          transition: "transform 0.3s",
-          transform: hovered ? "scale(1.1) rotate(-4deg)" : "scale(1) rotate(0)",
+          marginBottom: "1rem",
+          transition: "transform 0.5s ease-out",
+          transform: hovered ? "scale(1.05)" : "scale(1)",
         }}
       >
         {project.emoji}
       </div>
 
-      {/* Name */}
+      <p className="display-font" style={{ fontSize: "0.54rem", color: "var(--muted)", marginBottom: "0.35rem" }}>
+        {index === 0 ? "I" : index === 1 ? "II" : index === 2 ? "III" : "IV"}
+      </p>
+
       <h3
         style={{
-          fontFamily: "'Syne', sans-serif",
-          fontWeight: 700,
-          fontSize: "1.3rem",
-          letterSpacing: "-0.5px",
+          fontWeight: 500,
+          fontSize: "1.9rem",
           marginBottom: "0.6rem",
-          color: hovered ? project.accentColor : "var(--text)",
-          transition: "color 0.3s",
+          color: hovered ? "var(--accent)" : "var(--text)",
+          transition: "color 0.5s ease-out",
         }}
       >
         {project.name}
       </h3>
 
-      {/* Description */}
       <p
         style={{
-          fontSize: "0.85rem",
+          fontSize: "1rem",
           color: "var(--muted)",
           lineHeight: 1.7,
           marginBottom: "1.2rem",
@@ -152,7 +120,6 @@ function ProjectCard({ project, index }: { project: (typeof projects)[0]; index:
         {project.description}
       </p>
 
-      {/* Stack pills */}
       <div
         style={{
           display: "flex",
@@ -165,13 +132,15 @@ function ProjectCard({ project, index }: { project: (typeof projects)[0]; index:
           <span
             key={tech}
             style={{
-              fontFamily: "'DM Mono', monospace",
-              fontSize: "0.68rem",
-              padding: "3px 10px",
-              borderRadius: 100,
-              background: project.accentColor + "12",
-              color: project.accentColor,
-              border: `1px solid ${project.accentColor}25`,
+              fontFamily: "'Cinzel', serif",
+              fontSize: "0.52rem",
+              letterSpacing: "0.14em",
+              textTransform: "uppercase",
+              padding: "0.3rem 0.55rem",
+              borderRadius: 4,
+              background: "var(--bg)",
+              color: "var(--accent)",
+              border: "1px solid var(--border)",
             }}
           >
             {tech}
@@ -179,30 +148,15 @@ function ProjectCard({ project, index }: { project: (typeof projects)[0]; index:
         ))}
       </div>
 
-      {/* Links */}
       <div style={{ display: "flex", gap: "1rem" }}>
         <a
           href={project.github}
           target="_blank"
           rel="noopener noreferrer"
-          style={{
-            display: "inline-flex",
-            alignItems: "center",
-            gap: 6,
-            fontFamily: "'DM Mono', monospace",
-            fontSize: "0.75rem",
-            color: hovered ? project.accentColor : "var(--muted)",
-            textDecoration: "none",
-            transition: "color 0.2s",
-          }}
+          className="brass-outline"
+          style={{ minHeight: 38, padding: "0.46rem 0.8rem", fontSize: "0.52rem" }}
         >
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.92.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" />
-          </svg>
-          Source Code
-          <svg width="10" height="10" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} style={{ transform: hovered ? "translate(2px,-2px)" : "none", transition: "transform 0.2s" }}>
-            <path d="M7 17L17 7M7 7h10v10" />
-          </svg>
+          View Manuscript
         </a>
       </div>
     </div>
@@ -211,41 +165,21 @@ function ProjectCard({ project, index }: { project: (typeof projects)[0]; index:
 
 export default function Projects() {
   return (
-    <section
-      id="projects"
-      style={{
-        padding: "6rem 6%",
-        position: "relative",
-        zIndex: 1,
-      }}
-    >
+    <section id="projects" className="section-shell">
       <div className="reveal" style={{ marginBottom: "3rem" }}>
-        <div
-          style={{
-            fontFamily: "'DM Mono', monospace",
-            fontSize: "0.72rem",
-            color: "var(--accent)",
-            letterSpacing: "0.12em",
-            textTransform: "uppercase",
-            marginBottom: "0.6rem",
-          }}
-        >
-          featured work
-        </div>
+        <p className="roman-label" style={{ marginBottom: "0.55rem" }}>Volume III</p>
         <h2
           style={{
-            fontFamily: "'Syne', sans-serif",
-            fontWeight: 700,
-            fontSize: "clamp(1.8rem, 3vw, 2.5rem)",
-            letterSpacing: "-1px",
+            fontSize: "clamp(2rem, 3.8vw, 3.1rem)",
             marginBottom: "0.6rem",
           }}
         >
-          Projects
+          Collected Works
         </h2>
-        <p style={{ color: "var(--muted)", fontSize: "0.93rem", maxWidth: 500 }}>
-          A selection of projects built with real-world use cases in mind. Each one pushed me to learn and grow as an engineer.
+        <p style={{ color: "var(--muted)", fontSize: "1.05rem", maxWidth: 700 }}>
+          A catalog of practical systems crafted with care, each entry framed as a formal study in product engineering.
         </p>
+        <div className="ornate-divider" style={{ marginTop: "1rem" }} aria-hidden="true" />
       </div>
 
       <div
@@ -265,23 +199,10 @@ export default function Projects() {
           href="https://github.com/Md-Rakib-Hasan-Rabbi"
           target="_blank"
           rel="noopener noreferrer"
-          style={{
-            display: "inline-flex",
-            alignItems: "center",
-            gap: 8,
-            fontFamily: "'DM Mono', monospace",
-            fontSize: "0.8rem",
-            color: "var(--muted)",
-            textDecoration: "none",
-            border: "1px solid var(--border2)",
-            padding: "0.6rem 1.4rem",
-            borderRadius: 8,
-            transition: "all 0.2s",
-          }}
-          onMouseEnter={(e) => { e.currentTarget.style.color = "var(--accent)"; e.currentTarget.style.borderColor = "var(--accent)"; }}
-          onMouseLeave={(e) => { e.currentTarget.style.color = "var(--muted)"; e.currentTarget.style.borderColor = "var(--border2)"; }}
+          className="brass-button"
+          style={{ minHeight: 44, padding: "0.62rem 1.3rem", fontSize: "0.58rem" }}
         >
-          View all repositories on GitHub ↗
+          Open Full Archive
         </a>
       </div>
     </section>
