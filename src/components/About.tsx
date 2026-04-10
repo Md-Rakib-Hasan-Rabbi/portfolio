@@ -87,7 +87,7 @@ export default function About() {
                 marginBottom: "1.2rem",
               }}
             >
-              // full_stack_developer
+              {"// full_stack_developer"}
             </div>
 
             {/* Info rows */}
