@@ -202,7 +202,7 @@ export default function Projects() {
           className="brass-button"
           style={{ minHeight: 44, padding: "0.62rem 1.3rem", fontSize: "0.58rem" }}
         >
-          Open Full Archive
+          More Projects...
         </a>
       </div>
     </section>

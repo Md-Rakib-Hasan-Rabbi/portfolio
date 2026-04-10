@@ -233,9 +233,12 @@ h1, h2, h3, h4 {
 }
 
 .brass-outline:hover {
-  border-color: var(--accent-secondary);
-  color: var(--text);
-  background: var(--accent-secondary);
+  border-color: var(--accent-deep);
+  color: var(--accent-foreground);
+  background: var(--brass-gradient);
+  text-shadow: var(--engraved);
+  filter: brightness(1.1);
+  animation: brassGlow 2s ease-out infinite;
 }
 
 .brass-link {

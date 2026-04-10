@@ -86,7 +86,7 @@ export default function Navbar() {
       </ul>
 
       <a href="#contact" className="brass-button" style={{ minHeight: 40, padding: "0.5rem 1rem", fontSize: "0.58rem", animation: "fadeIn 0.5s 0.4s ease both" }}>
-        Summon Correspondence
+        Hire Me
       </a>
 
       <style>{`

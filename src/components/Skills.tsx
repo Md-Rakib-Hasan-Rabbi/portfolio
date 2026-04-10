@@ -51,7 +51,6 @@ function SkillBar({ name, level, color, animate }: { name: string; level: number
         }}
       >
         <span style={{ color: "var(--text)" }}>{name}</span>
-        <span style={{ color: "var(--muted)" }}>{level}%</span>
       </div>
       <div
         style={{
