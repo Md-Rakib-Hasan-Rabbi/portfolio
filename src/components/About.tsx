@@ -143,7 +143,7 @@ export default function About() {
           {[
             "Hi! I'm Rakib — a full stack developer with a genuine love for building things that people actually use. My sweet spot is the MERN stack (MongoDB, Express, React, Node.js), but I also enjoy crafting backend services with Python and Flask.",
             "I'm currently pursuing my Bachelor's in Software Engineering at United International University in Dhaka. Over the past 4 years of coding, I've built production-ready projects across healthcare, travel, productivity, and social good — each one a new challenge and a new lesson.",
-            "My projects span PocketCare (healthcare management), Safar (travel planning), Projex (project management), and Petopia (pet adoption) — real solutions for real problems.",
+            "My projects span PocketCare (healthcare management), Safar (travel planning), Projex (project management), and Expense Tracker (personal finance management) — real solutions for real problems.",
             "I'm actively looking for full-time roles, internships, and freelance collaborations where I can contribute meaningfully, grow fast, and ship great products alongside great teams.",
           ].map((para, i) => (
             <p

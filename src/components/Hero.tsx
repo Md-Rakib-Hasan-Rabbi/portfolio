@@ -67,7 +67,7 @@ export default function Hero() {
   }
 
   return (
-    <section id="home" className="section-shell" style={{ minHeight: "100vh", borderTop: "none", paddingTop: "7.5rem" }}>
+    <section id="home" className="section-shell" style={{ borderTop: "none", paddingTop: "7.5rem" }}>
       <div
         style={{
           display: "grid",

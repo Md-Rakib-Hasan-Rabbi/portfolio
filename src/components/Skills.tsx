@@ -7,72 +7,36 @@ const skillGroups = [
     title: "Frontend",
     color: "var(--accent)",
     skills: [
-      { name: "React.js", level: 92 },
-      { name: "JavaScript / TypeScript", level: 88 },
-      { name: "HTML5 & CSS3", level: 95 },
-      { name: "Tailwind CSS", level: 85 },
-      { name: "Next.js", level: 80 },
+      "React.js",
+      "JavaScript / TypeScript",
+      "HTML5 & CSS3",
+      "Tailwind CSS",
+      "Next.js",
     ],
   },
   {
     title: "Backend",
     color: "var(--accent)",
     skills: [
-      { name: "Node.js & Express", level: 90 },
-      { name: "Python", level: 85 },
-      { name: "Flask", level: 80 },
-      { name: "REST API Design", level: 88 },
-      { name: "JWT / Auth", level: 82 },
+      "Node.js & Express",
+      "Python",
+      "Flask",
+      "REST API Design",
+      "JWT / Auth",
     ],
   },
   {
     title: "Database & Tools",
     color: "var(--accent-secondary)",
     skills: [
-      { name: "MongoDB", level: 88 },
-      { name: "Mongoose", level: 85 },
-      { name: "Firebase", level: 78 },
-      { name: "Git & GitHub", level: 90 },
-      { name: "Postman", level: 85 },
+      "MongoDB",
+      "Mongoose",
+      "Firebase",
+      "Git & GitHub",
+      "Postman",
     ],
   },
 ];
-
-function SkillBar({ name, level, color, animate }: { name: string; level: number; color: string; animate: boolean }) {
-  return (
-    <div style={{ marginBottom: "0.9rem" }}>
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "space-between",
-          marginBottom: "0.3rem",
-          fontFamily: "'Crimson Pro', serif",
-          fontSize: "0.9rem",
-        }}
-      >
-        <span style={{ color: "var(--text)" }}>{name}</span>
-      </div>
-      <div
-        style={{
-          height: 8,
-          background: "var(--muted-surface)",
-          borderRadius: 4,
-          overflow: "hidden",
-        }}
-      >
-        <div
-          style={{
-            height: "100%",
-            width: animate ? `${level}%` : "0%",
-            background: color,
-            borderRadius: 4,
-            transition: "width 1.2s ease-out",
-          }}
-        />
-      </div>
-    </div>
-  );
-}
 
 export default function Skills() {
   const ref = useRef<HTMLDivElement>(null);
@@ -125,9 +89,22 @@ export default function Skills() {
             >
               {group.title}
             </div>
-            {group.skills.map((s) => (
-              <SkillBar key={s.name} name={s.name} level={s.level} color={group.color} animate={animate} />
-            ))}
+            <ul style={{ display: "grid", gap: "0.6rem", listStyle: "none" }}>
+              {group.skills.map((skill) => (
+                <li
+                  key={skill}
+                  style={{
+                    color: "var(--text)",
+                    fontSize: "0.96rem",
+                    lineHeight: 1.6,
+                    borderLeft: `2px solid ${group.color}`,
+                    paddingLeft: "0.55rem",
+                  }}
+                >
+                  {skill}
+                </li>
+              ))}
+            </ul>
           </div>
         ))}
       </div>

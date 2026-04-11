@@ -3,6 +3,7 @@
 export default function Footer() {
   return (
     <footer
+      className="site-footer"
       style={{
         position: "relative",
         zIndex: 1,
@@ -48,6 +49,15 @@ export default function Footer() {
       >
         Return to Prelude ↑
       </a>
+
+      <style>{`
+        @media (max-width: 768px) {
+          .site-footer {
+            justify-content: center !important;
+            text-align: center;
+          }
+        }
+      `}</style>
     </footer>
   );
 }

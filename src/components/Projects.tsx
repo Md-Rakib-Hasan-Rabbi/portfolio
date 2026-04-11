@@ -11,7 +11,7 @@ const projects = [
     description:
       "A comprehensive healthcare management platform enabling patients to book appointments, track medical history, manage prescriptions, and connect with healthcare professionals — bringing primary care to your pocket.",
     stack: ["React", "Node.js", "Express", "MongoDB", "JWT", "Tailwind CSS"],
-    github: "https://github.com/Md-Rakib-Hasan-Rabbi",
+    github: "https://github.com/Md-Rakib-Hasan-Rabbi/PocketCare",
     live: "",
     featured: true,
   },
@@ -23,7 +23,7 @@ const projects = [
     description:
       "A full-featured travel companion application for discovering destinations, planning day-by-day itineraries, and sharing trip experiences. Built for wanderers who need seamless trip organization with interactive maps.",
     stack: ["React", "Express", "MongoDB", "Firebase Auth", "Maps API", "Node.js"],
-    github: "https://github.com/Md-Rakib-Hasan-Rabbi",
+    github: "https://github.com/Md-Rakib-Hasan-Rabbi/safar",
     live: "",
     featured: false,
   },
@@ -35,19 +35,19 @@ const projects = [
     description:
       "A collaborative project management tool with Kanban task boards, team workspaces, role-based access, and real-time progress tracking. Designed to keep development teams aligned and shipping fast.",
     stack: ["MERN Stack", "Socket.io", "JWT", "Tailwind CSS", "REST API"],
-    github: "https://github.com/Md-Rakib-Hasan-Rabbi",
+    github: "https://github.com/Md-Rakib-Hasan-Rabbi/ProjeX",
     live: "",
     featured: false,
   },
   {
-    name: "Petopia",
-    emoji: "🐾",
+    name: "Expense Tracker",
+    emoji: "💸",
     iconBg: "rgba(250,199,117,0.08)",
     accentColor: "#fac775",
     description:
-      "A pet adoption and care platform connecting loving homes with animals in need. Features searchable pet listings, adoption request workflows, pet care guides, and a donation system for shelters.",
-    stack: ["React", "Node.js", "MongoDB", "Express", "Stripe", "Firebase"],
-    github: "https://github.com/Md-Rakib-Hasan-Rabbi",
+      "A full-stack personal finance app for tracking income and expenses, managing budgets, and visualizing spending trends through interactive dashboards and reports.",
+    stack: ["React", "Tailwind CSS", "Node.js", "Express", "Supabase Postgres", "JWT"],
+    github: "https://github.com/Md-Rakib-Hasan-Rabbi/expense-tracker",
     live: "",
     featured: false,
   },
@@ -185,7 +185,7 @@ export default function Projects() {
       <div
         style={{
           display: "grid",
-          gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
+          gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 300px), 1fr))",
           gap: "1.5rem",
         }}
       >

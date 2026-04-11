@@ -326,6 +326,31 @@ textarea:focus-visible {
   .section-shell {
     padding: 4.5rem 5%;
   }
+
+  .section-panel {
+    padding: 1.2rem;
+  }
+
+  .drop-cap::first-letter {
+    font-size: 2.8rem;
+    margin-right: 0.35rem;
+  }
+
+  .brass-button,
+  .brass-outline {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .section-shell {
+    padding: 4rem 4%;
+  }
+
+  .roman-label {
+    font-size: 0.62rem;
+    letter-spacing: 0.2em;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
